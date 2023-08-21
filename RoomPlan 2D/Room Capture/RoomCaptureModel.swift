@@ -20,6 +20,9 @@ class RoomCaptureModel: RoomCaptureSessionDelegate {
     private let captureSessionConfig: RoomCaptureSession.Configuration
     private let roomBuilder: RoomBuilder
     
+    // ARSession downloader
+    private let downloader: Downloader
+    
     // The final scan result
     var finalRoom: CapturedRoom?
     
@@ -36,6 +39,7 @@ class RoomCaptureModel: RoomCaptureSessionDelegate {
         roomCaptureView = RoomCaptureView(frame: .zero)
         captureSessionConfig = RoomCaptureSession.Configuration()
         roomBuilder = RoomBuilder(options: [.beautifyObjects])
+        downloader = Downloader(session: roomCaptureView.captureSession)
         
         roomCaptureView.captureSession.delegate = self
     }
@@ -61,6 +65,9 @@ class RoomCaptureModel: RoomCaptureSessionDelegate {
         
         Task {
             finalRoom = try! await roomBuilder.capturedRoom(from: data)
+            
+            try! await downloader.downloadUsd(name: "parametric", exportOption: .parametric)
+            try! await downloader.downloadUsd(name: "mesh", exportOption: .mesh)
         }
     }
     

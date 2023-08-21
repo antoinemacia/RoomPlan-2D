@@ -16,5 +16,4 @@ struct RoomCaptureRepresentable: UIViewRepresentable {
     
     func updateUIView(_ uiView: RoomCaptureView, context: Context) {
     }
-    
 }

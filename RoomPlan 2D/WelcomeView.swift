@@ -15,10 +15,10 @@ struct WelcomeView: View {
                 .foregroundColor(.accentColor)
                 .padding(.bottom, 8)
             
-            Text("RoomPlan 2D")
+            Text("Intelligent 👁️")
                 .font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
                 .fontWeight(.bold)
-            Text("Scan your room and create a 2D floor plan.")
+            Text("Scan your room and let us do the rest.")
             
             Spacer()
                 .frame(height: 50)
