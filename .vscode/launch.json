@@ -1,0 +1,28 @@
+{
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "name": "Debug RoomPlan-2D",
+      "program": "${workspaceFolder:RoomPlan-2D}/.build/debug/RoomPlan-2D",
+      "args": [],
+      "cwd": "${workspaceFolder:RoomPlan-2D}",
+      "preLaunchTask": "swift: Build Debug RoomPlan-2D"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "sourceLanguages": [
+        "swift"
+      ],
+      "name": "Release RoomPlan-2D",
+      "program": "${workspaceFolder:RoomPlan-2D}/.build/release/RoomPlan-2D",
+      "args": [],
+      "cwd": "${workspaceFolder:RoomPlan-2D}",
+      "preLaunchTask": "swift: Build Release RoomPlan-2D"
+    }
+  ]
+}

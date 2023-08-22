@@ -7,6 +7,7 @@
 
 import Foundation
 import RoomPlan
+import ARKit
 
 class RoomCaptureModel: RoomCaptureSessionDelegate {
     
@@ -40,7 +41,7 @@ class RoomCaptureModel: RoomCaptureSessionDelegate {
         captureSessionConfig = RoomCaptureSession.Configuration()
         roomBuilder = RoomBuilder(options: [.beautifyObjects])
         downloader = Downloader(session: roomCaptureView.captureSession)
-        
+
         roomCaptureView.captureSession.delegate = self
     }
         
@@ -68,6 +69,7 @@ class RoomCaptureModel: RoomCaptureSessionDelegate {
             
             try! await downloader.downloadUsd(name: "parametric", exportOption: .parametric)
             try! await downloader.downloadUsd(name: "mesh", exportOption: .mesh)
+            try! await downloader.downloadFrames(name: "meows")
         }
     }
     
